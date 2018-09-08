@@ -13,9 +13,9 @@ receiver takes USB HID reports from the RFM69 radio then sends to the computer
 over USB.
 
 ## USB keyboard receiver
-
+```
 915 MHz -> Feather 32u4 RFM69HCW -> USB cable -> Computer
-
+```
 The receiver may use the M0 or 32u4 Feather version. The 32u4 was used here for
 no other reason than it was available.
 
@@ -29,6 +29,7 @@ computer. The Feather is powered from the computer.
 
 ## USB keyboard sender
 
+```
 USB         USB OTG Host
 Keyboard -> cable/adapter -> Feather M0 RFM69HCW -> 915 MHz
                              GND  USB  Tx
@@ -37,6 +38,7 @@ Keyboard -> cable/adapter -> Feather M0 RFM69HCW -> 915 MHz
                               |    |   v
                              GND  5V   RxD
                              CP2104 USB to serial -> Computer
+```
 
 WARNING: The sender must use the M0 Feather version because the M0 has USB host
 capability. The 32u4 does not.
@@ -64,7 +66,9 @@ time.
 WARNING: When using USB host mode, the Feather RESET button must be pressed
 twice to put the board in upload mode. Automatic upload does not work.
 
+```
 Feather M0 RFM69HCW -> USB cable -> Computer
+```
 
 ### Sender mode
 
