@@ -12,7 +12,13 @@ required because the RFM69HCW radio is integrated with the Feather board. The
 receiver takes USB HID reports from the RFM69 radio then sends to the computer
 over USB.
 
+Be sure to follow Adafruit's tutorials for both boards to make sure the boards
+work and the libraries are installed.
+
 ## USB keyboard receiver
+
+![Adafruit Feather RFM69 board](./images/usbkbdrfm69rx.jpg)
+
 ```
 915 MHz -> Feather 32u4 RFM69HCW -> USB cable -> Computer
 ```
@@ -29,24 +35,28 @@ computer. The Feather is powered from the computer.
 
 ## USB keyboard sender
 
+![Feather M0 RFM69 and USB keyboard](./images/usbkbdrfm69tx.jpg)
+
+The components from left to right are:
+
+* CP2104 USB serial adapter
+* Feather M0 with RFM69HCW
+* USB phone/tablet charger, 5V 1A
+* USB keyboard
+
 ```
 USB         USB OTG Host
 Keyboard -> cable/adapter -> Feather M0 RFM69HCW -> 915 MHz
-                             GND  USB  Tx
-                              |    ^   |
-                              |    |   |
-                              |    |   v
-                             GND  5V   RxD
-                             CP2104 USB to serial -> Computer
+                             GND  USB  Tx  Rx
+                              |    ^   |   ^
+                              |    |   |   |
+                              |    |   v   |
+                             GND  5V   RxD TxD
+                             CP2104 USB to serial -> Computer or 5V
 ```
 
-WARNING: The sender must use the M0 Feather version because the M0 has USB host
-capability. The 32u4 does not.
-
-* USB keyboard
-* USB OTG Host Cable - MicroB OTG male to A female
-* Adafruit Feather M0 RFM69HCW Packet Radio
-* Adafruit CP2104 Friend - USB to Serial Converter
+WARNING: The sender must use the M0 version because it has USB host capability.
+The 32u4 does not.
 
 Headers and breadboard are used to connect to power to the Feather board. An
 antenna is required.
@@ -69,6 +79,10 @@ twice to put the board in upload mode. Automatic upload does not work.
 ```
 Feather M0 RFM69HCW -> USB cable -> Computer
 ```
+
+Another option to avoid switching cables, is upload through the CP2104 board
+and the Serial1 port. The RESET button must still be double clicked to start
+the upload.
 
 ### Sender mode
 

@@ -5,7 +5,7 @@
  * Based on an example included in Adafruit's fork of the RadioHead library.
  */
 
-//8#define DEBUG_KEYBOARD_RAW
+//#define DEBUG_KEYBOARD_RAW
 
 #include <Keyboard.h>
 
@@ -29,7 +29,7 @@
   #define LED           13
 #endif
 
-#if defined(ARDUINO_SAMD_FEATHER_M0)  // Adafruit Feather M0 w/Radio
+#if defined(ADAFRUIT_FEATHER_M0)  // Adafruit Feather M0 w/Radio
   #define RFM69_CS      8
   #define RFM69_INT     3
   #define RFM69_RST     4
@@ -162,4 +162,3 @@ void loop() {
     }
   }
 }
-

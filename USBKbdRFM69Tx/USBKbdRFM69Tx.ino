@@ -28,7 +28,7 @@
   #define LED           13
 #endif
 
-#if defined(ARDUINO_SAMD_FEATHER_M0)  // Adafruit Feather M0 w/Radio
+#if defined(ADAFRUIT_FEATHER_M0)  // Adafruit Feather M0 w/Radio
   #define RFM69_CS      8
   #define RFM69_INT     3
   #define RFM69_RST     4
@@ -143,7 +143,7 @@ void setup()
   //while (!SERIAL_PORT_MONITOR); // Wait for serial port to connect - used on Leonardo, Teensy and other boards with built-in USB CDC serial connection
   SERIAL_PORT_MONITOR.println("KeyboardRaw Program started");
 
-  if (usb.Init() == -1)
+  if (usb.Init())
     SERIAL_PORT_MONITOR.println("USB host controller did not start.");
 
   delay( 20 );
@@ -193,4 +193,3 @@ void loop()
   // Process USB tasks
   usb.Task();
 }
-
